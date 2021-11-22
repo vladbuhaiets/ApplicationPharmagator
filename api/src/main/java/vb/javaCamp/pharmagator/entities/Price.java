@@ -20,7 +20,7 @@ import java.time.Instant;
 public class Price {
 
     @Id
-    private Long priceId;
+    private Long pharmacyId;
 
     @Id
     private Long medicineId;

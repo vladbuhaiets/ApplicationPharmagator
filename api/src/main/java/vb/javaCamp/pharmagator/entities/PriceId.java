@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class PriceId implements Serializable {
 
     @Id
-    private Long priceId;
+    private Long pharmacyId;
 
     @Id
     private Long medicineId;
