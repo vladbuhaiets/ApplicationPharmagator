@@ -1,4 +1,4 @@
-package vb.javaCamp.ApplicationPharmagator;
+package vb.javaCamp.pharmagator;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

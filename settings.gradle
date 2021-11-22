@@ -1,3 +1,4 @@
 rootProject.name = 'ApplicationPharmagator'
+
 include 'api'
 
