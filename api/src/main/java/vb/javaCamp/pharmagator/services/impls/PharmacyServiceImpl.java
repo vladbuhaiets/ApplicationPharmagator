@@ -37,7 +37,6 @@ public class PharmacyServiceImpl implements PharmacyService {
         Pharmacy pharmacy = PharmacyMapper.DtoToEntity(pharmacyDTO);
         Pharmacy createdPharmacy = pharmacyRepository.save(pharmacy);
         PharmacyDTO dto = PharmacyMapper.entityToDto(createdPharmacy);
-        dto.setId(createdPharmacy.getId());
         return dto;
 
     }
@@ -54,7 +53,6 @@ public class PharmacyServiceImpl implements PharmacyService {
         pharmacy.setId(id);
         Pharmacy createdPharmacy = pharmacyRepository.save(pharmacy);
         PharmacyDTO dto = PharmacyMapper.entityToDto(createdPharmacy);
-        dto.setId(createdPharmacy.getId());
         return dto;
 
     }
