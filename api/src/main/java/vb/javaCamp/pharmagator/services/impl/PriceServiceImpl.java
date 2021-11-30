@@ -1,9 +1,8 @@
-package vb.javaCamp.pharmagator.services.impls;
+package vb.javaCamp.pharmagator.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import vb.javaCamp.pharmagator.DTOs.PriceDTO;
-import vb.javaCamp.pharmagator.DTOs.PriceIdDTO;
 import vb.javaCamp.pharmagator.entities.Price;
 import vb.javaCamp.pharmagator.entities.PriceId;
 import vb.javaCamp.pharmagator.mappers.PriceMapper;

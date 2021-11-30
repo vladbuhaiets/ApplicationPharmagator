@@ -1,4 +1,4 @@
-package vb.javaCamp.pharmagator.services.impls;
+package vb.javaCamp.pharmagator.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class MedicineServiceImpl implements MedicineService {
 
     private final MedicineRepository medicineRepository;
 
-    public List<MedicineDTO> getAllPharmacies() {
+    public List<MedicineDTO> getAllMedicines() {
 
         return medicineRepository.findAll()
                 .stream()

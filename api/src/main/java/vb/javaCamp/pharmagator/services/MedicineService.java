@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MedicineService {
 
-    List<MedicineDTO> getAllPharmacies();
+    List<MedicineDTO> getAllMedicines();
 
     MedicineDTO getMedicine(Long id);
 

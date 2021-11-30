@@ -1,6 +1,7 @@
 package vb.javaCamp.pharmagator.services;
 
 import vb.javaCamp.pharmagator.DTOs.PharmacyDTO;
+import vb.javaCamp.pharmagator.projections.PharmacyProjection;
 
 import java.util.List;
 

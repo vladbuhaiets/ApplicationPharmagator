@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-//@Service
+@Service
 @RequiredArgsConstructor
 @Qualifier("pharmacyANCDataProvider")
 public class PharmacyANCDataProvider implements DataProvider {
