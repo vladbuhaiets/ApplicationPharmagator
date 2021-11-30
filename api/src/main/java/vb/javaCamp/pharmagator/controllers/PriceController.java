@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import vb.javaCamp.pharmagator.DTOs.PriceDTO;
 import vb.javaCamp.pharmagator.services.PriceService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,14 +30,14 @@ public class PriceController {
     }
 
     @PostMapping
-    public PriceDTO createPrice(@RequestBody PriceDTO priceDTO) {
+    public PriceDTO createPrice(@Valid @RequestBody PriceDTO priceDTO) {
 
         return priceService.createPrice(priceDTO);
 
     }
 
     @PutMapping("/pharmacyId/{pid}/medicineId/{mid}")
-    public PriceDTO updatePrice(@RequestBody PriceDTO priceDTO, @PathVariable("pid") Long pid, @PathVariable("mid") Long mid) {
+    public PriceDTO updatePrice(@Valid @RequestBody PriceDTO priceDTO, @PathVariable("pid") Long pid, @PathVariable("mid") Long mid) {
 
         return priceService.updatePrice(priceDTO, pid, mid);
 

@@ -3,8 +3,10 @@ package vb.javaCamp.pharmagator.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import vb.javaCamp.pharmagator.DTOs.PharmacyDTO;
+import vb.javaCamp.pharmagator.projections.PharmacyProjection;
 import vb.javaCamp.pharmagator.services.PharmacyService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,21 +31,21 @@ public class PharmacyController {
     }
 
     @PostMapping
-    public PharmacyDTO createPharmacy(@RequestBody PharmacyDTO pharmacyDTO) {
+    public PharmacyDTO createPharmacy(@Valid @RequestBody PharmacyDTO pharmacyDTO) {
 
         return pharmacyService.createPharmacy(pharmacyDTO);
 
     }
 
     @PutMapping("/{id}")
-    public PharmacyDTO updatePharmacy(@RequestBody PharmacyDTO pharmacyDTO, @PathVariable("id") Long id) {
+    public PharmacyDTO updatePharmacy(@Valid @RequestBody PharmacyDTO pharmacyDTO, @PathVariable("id") Long id) {
 
         return pharmacyService.updatePharmacy(pharmacyDTO, id);
 
     }
 
     @DeleteMapping("/{id}")
-    public void deletePharmacy(@PathVariable("id") Long id){
+    public void deletePharmacy(@PathVariable("id") Long id) {
 
         pharmacyService.deletePharmacy(id);
 

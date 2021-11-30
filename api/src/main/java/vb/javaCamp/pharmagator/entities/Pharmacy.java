@@ -17,6 +17,7 @@ public class Pharmacy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @Column(nullable = false)
     private String name;
 
     private String medicineLinkTemplate;

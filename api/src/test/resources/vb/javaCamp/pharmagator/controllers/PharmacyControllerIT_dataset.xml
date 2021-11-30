@@ -1,0 +1,5 @@
+<dataset>
+    <pharmacies id="20211111" name="PharmacyControllerIT_name1" medicine_link_template ="PharmacyControllerIT_link1"/>
+    <pharmacies id="20211112" name="PharmacyControllerIT_name2" medicine_link_template ="PharmacyControllerIT_link2"/>
+    <pharmacies id="20211114" name="PharmacyControllerIT_name4" medicine_link_template ="PharmacyControllerIT_link4"/>
+</dataset>

@@ -1,12 +1,12 @@
 create table pharmacies (
 id bigserial primary key,
-name varchar(256) not null,
-medicine_link_template varchar(256)
+name varchar(255) not null,
+medicine_link_template varchar(255)
 );
 
 create table medicines (
 id bigserial primary key,
-title varchar(256)
+title varchar(255)
 );
 
 create table prices (
