@@ -20,6 +20,4 @@ public class PriceDTO {
 
     private String externalId;
 
-    private Instant updatedAt;
-
 }
