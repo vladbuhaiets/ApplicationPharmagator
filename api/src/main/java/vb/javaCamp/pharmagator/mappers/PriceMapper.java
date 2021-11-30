@@ -5,6 +5,8 @@ import vb.javaCamp.pharmagator.DTOs.PriceIdDTO;
 import vb.javaCamp.pharmagator.entities.Price;
 import vb.javaCamp.pharmagator.entities.PriceId;
 
+import java.time.Instant;
+
 public class PriceMapper {
 
     public static Price DtoToEntity(PriceDTO priceDTO) {
@@ -14,7 +16,7 @@ public class PriceMapper {
         price.setMedicineId(priceDTO.getMedicineId());
         price.setExternalId(priceDTO.getExternalId());
         price.setPharmacyId(priceDTO.getPharmacyId());
-        price.setUpdatedAt(priceDTO.getUpdatedAt());
+        price.setUpdatedAt(Instant.now());
         return price;
 
     }
@@ -33,7 +35,6 @@ public class PriceMapper {
         PriceDTO priceDTO = new PriceDTO();
         priceDTO.setPrice(price.getPrice());
         priceDTO.setExternalId(price.getExternalId());
-        priceDTO.setUpdatedAt(price.getUpdatedAt());
         priceDTO.setMedicineId(price.getMedicineId());
         priceDTO.setPharmacyId(price.getPharmacyId());
         return priceDTO;
