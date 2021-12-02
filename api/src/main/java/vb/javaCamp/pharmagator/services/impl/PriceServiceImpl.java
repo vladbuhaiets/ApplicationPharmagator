@@ -49,8 +49,8 @@ public class PriceServiceImpl implements PriceService {
         Price price = PriceMapper.DtoToEntity(priceDTO);
         price.setPharmacyId(pid);
         price.setMedicineId(mid);
-        Price created = priceRepository.save(price);
-        PriceDTO dto = PriceMapper.entityToDto(created);
+        Price updated = priceRepository.save(price);
+        PriceDTO dto = PriceMapper.entityToDto(updated);
         return dto;
 
     }
