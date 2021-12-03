@@ -53,8 +53,8 @@ public class MedicineServiceImpl implements MedicineService {
 
         Medicine medicine = MedicineMapper.DtoToMedicineEntity(medicineDTO);
         medicine.setId(id);
-        Medicine created = medicineRepository.save(medicine);
-        MedicineDTO dto = MedicineMapper.entityToDto(created);
+        Medicine updated = medicineRepository.save(medicine);
+        MedicineDTO dto = MedicineMapper.entityToDto(updated);
         return dto;
 
     }
