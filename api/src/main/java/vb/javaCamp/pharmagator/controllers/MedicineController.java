@@ -2,8 +2,11 @@ package vb.javaCamp.pharmagator.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import vb.javaCamp.pharmagator.DTOs.MedicineDTO;
+import vb.javaCamp.pharmagator.services.CsvParserService;
 import vb.javaCamp.pharmagator.services.MedicineService;
+import org.springframework.http.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
 public class MedicineController {
 
     private final MedicineService medicineService;
+    private final CsvParserService csvParserService;
 
     @GetMapping
     public List<MedicineDTO> getAllMedicines() {
@@ -36,6 +40,14 @@ public class MedicineController {
 
     }
 
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+
+        csvParserService.parse(file);
+        return ResponseEntity.noContent().build();
+
+    }
+
     @PutMapping("/{id}")
     public MedicineDTO updateMedicine(@Valid @RequestBody MedicineDTO medicineDTO, @PathVariable("id") Long id) {
 
@@ -44,7 +56,7 @@ public class MedicineController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMedicine(@PathVariable("id") Long id){
+    public void deleteMedicine(@PathVariable("id") Long id) {
 
         medicineService.deleteMedicine(id);
 

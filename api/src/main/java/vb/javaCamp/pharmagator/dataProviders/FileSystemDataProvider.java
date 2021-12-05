@@ -32,7 +32,6 @@ public class FileSystemDataProvider implements DataProvider {
             List<Path> collect = paths.filter(Files::isRegularFile).collect(Collectors.toList());
             return collect.stream().filter(Files::isRegularFile)
                     .flatMap(path -> {
-                        Path fileName = path.getFileName();
                         try (FileInputStream inputStream = new FileInputStream(path.toFile())) {
                             List<MedicineDTO> medicineDtos = this.csvParserService.parse(inputStream);
                             return medicineDtos.stream();
