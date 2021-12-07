@@ -30,7 +30,7 @@ public class CsvParserServiceImpl implements CsvParserService {
     public static String TYPE = "text/csv";
 
     @Override
-    public String parse(MultipartFile file) {
+    public String parseMultipartFile(MultipartFile file) {
 
         if (file.isEmpty())
             return "File is empty!";
@@ -39,14 +39,14 @@ public class CsvParserServiceImpl implements CsvParserService {
             try {
                 InputStream inputStream = file.getInputStream();
                 csvParser.parse(inputStream);
-                rowProcessor.getBeans().forEach(this::save);
+                rowProcessor.getBeans().forEach(savingService::saveToDB);
                 return "File : " + file.getOriginalFilename() + " is saved!";
 
             } catch (IOException e) {
                 return "File is not saved... Something goes wrong";
             }
         }
-        return "File has not correct type.";
+        return "File has not correct type";
 
     }
 
@@ -56,7 +56,7 @@ public class CsvParserServiceImpl implements CsvParserService {
     private final String PHARMACY = "pharmacy";
 
     @Override
-    public List<MedicineDTO> parse(InputStream inputStream) {
+    public List<MedicineDTO> parseIS(InputStream inputStream) {
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String header = reader.readLine();
@@ -74,11 +74,9 @@ public class CsvParserServiceImpl implements CsvParserService {
             return medicines;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            return List.of();
         }
 
-
-        return List.of();
     }
 
     private Map<String, Integer> parseHeader(String header) {
@@ -100,10 +98,6 @@ public class CsvParserServiceImpl implements CsvParserService {
                 .externalId("from CSV file")
                 .pharmacyName(lines[headers.get(PHARMACY)])
                 .build();
-    }
-
-    private void save(MedicineDTO dto) {
-        savingService.saveToDB(dto);
     }
 
 }

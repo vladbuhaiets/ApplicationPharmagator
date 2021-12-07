@@ -33,16 +33,16 @@ public class FileSystemDataProvider implements DataProvider {
             return collect.stream().filter(Files::isRegularFile)
                     .flatMap(path -> {
                         try (FileInputStream inputStream = new FileInputStream(path.toFile())) {
-                            List<MedicineDTO> medicineDtos = this.csvParserService.parse(inputStream);
+                            List<MedicineDTO> medicineDtos = this.csvParserService.parseIS(inputStream);
                             return medicineDtos.stream();
                         } catch (IOException e) {
-                            e.printStackTrace();
                             return Stream.empty();
                         }
                     });
         } catch (IOException e) {
-            e.printStackTrace();
+            return Stream.empty();
         }
-        return Stream.empty();
+
     }
+
 }

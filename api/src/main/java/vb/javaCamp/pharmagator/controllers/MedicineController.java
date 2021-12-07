@@ -43,7 +43,7 @@ public class MedicineController {
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
 
-        csvParserService.parse(file);
+        csvParserService.parseMultipartFile(file);
         return ResponseEntity.noContent().build();
 
     }

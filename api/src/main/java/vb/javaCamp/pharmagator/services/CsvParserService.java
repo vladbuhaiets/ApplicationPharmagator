@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CsvParserService {
 
-    String parse(MultipartFile file);
+    String parseMultipartFile(MultipartFile file);
 
-    List<MedicineDTO> parse(InputStream inputStream);
+    List<MedicineDTO> parseIS(InputStream inputStream);
 
 }
