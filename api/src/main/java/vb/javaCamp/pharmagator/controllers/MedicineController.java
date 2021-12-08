@@ -1,12 +1,14 @@
 package vb.javaCamp.pharmagator.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import vb.javaCamp.pharmagator.DTOs.MedicineDTO;
+import vb.javaCamp.pharmagator.DTOs.PriceDTO;
 import vb.javaCamp.pharmagator.services.CsvParserService;
 import vb.javaCamp.pharmagator.services.MedicineService;
-import org.springframework.http.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -43,8 +45,9 @@ public class MedicineController {
     @PostMapping("/upload")
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
 
-        csvParserService.parseMultipartFile(file);
-        return ResponseEntity.noContent().build();
+        return file.isEmpty() ?
+                ResponseEntity.status(HttpStatus.OK).body(csvParserService.parseMultipartFile(file)) :
+                ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(csvParserService.parseMultipartFile(file));
 
     }
 
@@ -62,4 +65,10 @@ public class MedicineController {
 
     }
 
+    @GetMapping("/{id}/prices")
+    public List<PriceDTO> findPricesById(@PathVariable("id") Long id) {
+
+        return medicineService.findPricesById(id);
+
+    }
 }

@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 import vb.javaCamp.pharmagator.entities.Price;
 import vb.javaCamp.pharmagator.entities.PriceId;
 
+import java.util.List;
+
 @Repository
 public interface PriceRepository extends JpaRepository<Price, PriceId> {
+
+    List<Price> findAllByMedicineId(Long id);
+
 }

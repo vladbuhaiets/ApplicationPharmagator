@@ -3,9 +3,12 @@ package vb.javaCamp.pharmagator.services.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import vb.javaCamp.pharmagator.DTOs.MedicineDTO;
+import vb.javaCamp.pharmagator.DTOs.PriceDTO;
 import vb.javaCamp.pharmagator.entities.Medicine;
 import vb.javaCamp.pharmagator.mappers.MedicineMapper;
+import vb.javaCamp.pharmagator.mappers.PriceMapper;
 import vb.javaCamp.pharmagator.repositories.MedicineRepository;
+import vb.javaCamp.pharmagator.repositories.PriceRepository;
 import vb.javaCamp.pharmagator.services.MedicineService;
 
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.stream.Collectors;
 public class MedicineServiceImpl implements MedicineService {
 
     private final MedicineRepository medicineRepository;
+    private final PriceRepository priceRepository;
 
     public List<MedicineDTO> getAllMedicines() {
 
@@ -57,6 +61,13 @@ public class MedicineServiceImpl implements MedicineService {
         MedicineDTO dto = MedicineMapper.entityToDto(updated);
         return dto;
 
+    }
+
+    @Override
+    public List<PriceDTO> findPricesById(Long id) {
+        return priceRepository.findAllByMedicineId(id).stream()
+                .map(PriceMapper::entityToDto)
+                .collect(Collectors.toList());
     }
 
 }
