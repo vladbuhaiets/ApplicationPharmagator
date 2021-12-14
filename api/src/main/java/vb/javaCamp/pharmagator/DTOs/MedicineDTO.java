@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class MedicineDTO {
 
+    private Long Id;
+
     @Parsed(field = "title")
     private String title;
 
