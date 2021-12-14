@@ -16,16 +16,16 @@ public class MedicineDTO {
 
     private Long Id;
 
-    @Parsed(field = "title")
+    @Parsed(field = "name")
     private String title;
 
     @Parsed(field = "price")
     private BigDecimal price;
 
-    @Parsed(field = "externalId")
+    @Parsed(field = "link")
     private String externalId;
 
-    @Parsed(field = "pharmacyName")
+    @Parsed(field = "pharmacy")
     private String pharmacyName;
 
 }
