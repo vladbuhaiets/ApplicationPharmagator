@@ -92,7 +92,7 @@ class MedicineControllerIT {
     @Test
     void createMedicine() throws Exception {
 
-        MedicineDTO medicineDTO = new MedicineDTO("MedicineControllerIT_name3", BigDecimal.valueOf(2021111203), "2021111203", "2021111203" );
+        MedicineDTO medicineDTO = new MedicineDTO(2021111203L,"MedicineControllerIT_name3", BigDecimal.valueOf(2021111203), "2021111203", "2021111203" );
 
         try {
             DatabaseOperation.REFRESH.execute(this.dataSourceConnection, readDataSet());
@@ -113,7 +113,7 @@ class MedicineControllerIT {
 
         Long id = 20211112L;
 
-        MedicineDTO medicineDTO = new MedicineDTO("NewTitle", BigDecimal.valueOf(20211112L), "20211112L", "20211112L" );
+        MedicineDTO medicineDTO = new MedicineDTO(20211112L,"NewTitle", BigDecimal.valueOf(20211112L), "20211112L", "20211112L" );
 
         try {
             DatabaseOperation.REFRESH.execute(this.dataSourceConnection, readDataSet());
