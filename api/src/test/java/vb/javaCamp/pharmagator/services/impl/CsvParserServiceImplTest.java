@@ -57,9 +57,9 @@ class CsvParserServiceImplTest {
         MultipartFile file = new MockMultipartFile("testFile", "originalName", TYPE, resource);
 
         List<MedicineDTO> dtos = List.of(
-                new MedicineDTO("Medicine1", BigDecimal.valueOf(25.5), "ExId1", "Pharmacy1"),
-                new MedicineDTO("Medicine2", BigDecimal.valueOf(80), "ExId2", "Pharmacy2"),
-                new MedicineDTO("Medicine3", BigDecimal.valueOf(5.5), "ExId3", "Pharmacy3")
+                new MedicineDTO(1L,"Medicine1", BigDecimal.valueOf(25.5), "ExId1", "Pharmacy1"),
+                new MedicineDTO(2L,"Medicine2", BigDecimal.valueOf(80), "ExId2", "Pharmacy2"),
+                new MedicineDTO(3L,"Medicine3", BigDecimal.valueOf(5.5), "ExId3", "Pharmacy3")
         );
 
         when(rowProcessor.getBeans()).thenReturn(dtos);
@@ -110,9 +110,9 @@ class CsvParserServiceImplTest {
                 "medicine.csv").getInputStream();
 
         List<MedicineDTO> dtos = List.of(
-                new MedicineDTO("Medicine1", BigDecimal.valueOf(25.5), "ExId1", "Pharmacy1"),
-                new MedicineDTO("Medicine2", BigDecimal.valueOf(80), "ExId2", "Pharmacy2"),
-                new MedicineDTO("Medicine3", BigDecimal.valueOf(5.5), "ExId3", "Pharmacy3")
+                new MedicineDTO(1L,"Medicine1", BigDecimal.valueOf(25.5), "ExId1", "Pharmacy1"),
+                new MedicineDTO(2L,"Medicine2", BigDecimal.valueOf(80), "ExId2", "Pharmacy2"),
+                new MedicineDTO(3L,"Medicine3", BigDecimal.valueOf(5.5), "ExId3", "Pharmacy3")
         );
 
         List<MedicineDTO> list = csvParserService.parseIS(resource);
