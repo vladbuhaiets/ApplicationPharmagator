@@ -9,7 +9,6 @@ public class MedicineMapper {
     public static MedicineDTO entityToDto(Medicine medicine) {
         MedicineDTO dto = new MedicineDTO();
         dto.setTitle(medicine.getTitle());
-        dto.setId(medicine.getId());
         return dto;
     }
 

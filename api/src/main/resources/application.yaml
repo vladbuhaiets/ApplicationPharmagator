@@ -10,8 +10,6 @@ spring:
 
 pharmagator:
   data-providers:
-    filesystem:
-      path: "C:\\Users\\vbuha\\IdeaProjects\\csv\\"
     apteka-ds:
       url: https://api-int.apteka-ds.com.ua/api/v1
       category-fetch-url: /category-menu

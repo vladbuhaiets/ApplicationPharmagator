@@ -7,14 +7,11 @@ import vb.javaCamp.pharmagator.entities.Pharmacy;
 import vb.javaCamp.pharmagator.projections.PharmacyProjection;
 
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface PharmacyRepository extends JpaRepository<Pharmacy, Long> {
 
     @Query("SELECT pharmacy FROM Pharmacy pharmacy")
     List<PharmacyProjection> findAllProj();
-
-    Optional<Pharmacy> findByName(String name);
 
 }

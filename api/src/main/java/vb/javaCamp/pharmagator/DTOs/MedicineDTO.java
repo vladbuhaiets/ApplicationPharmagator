@@ -1,6 +1,5 @@
 package vb.javaCamp.pharmagator.DTOs;
 
-import com.univocity.parsers.annotations.Parsed;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,18 +13,12 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class MedicineDTO {
 
-    private Long Id;
-
-    @Parsed(field = "title")
     private String title;
 
-    @Parsed(field = "price")
     private BigDecimal price;
 
-    @Parsed(field = "externalId")
     private String externalId;
 
-    @Parsed(field = "pharmacyName")
     private String pharmacyName;
 
 }

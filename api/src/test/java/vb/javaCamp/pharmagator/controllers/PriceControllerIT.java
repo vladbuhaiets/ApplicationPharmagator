@@ -93,24 +93,7 @@ class PriceControllerIT {
     }
 
     @Test
-    void createPrice() throws Exception {
-
-        Long pid = 20211119L;
-        Long mid = 20211119L;
-
-        PriceDTO priceDTO = new PriceDTO(pid, mid, BigDecimal.valueOf(20211119L) ,"20211119");
-        try {
-            DatabaseOperation.REFRESH.execute(this.dataSourceConnection, readDataSet());
-            this.mockMvc.perform(MockMvcRequestBuilders.post(URI)
-                            .contentType(MediaType.APPLICATION_JSON)
-                            .content(new ObjectMapper().writeValueAsString(priceDTO)))
-                    .andExpect(MockMvcResultMatchers.status().isOk())
-                    .andExpect(jsonPath("$.price").value("20211119"))
-                    .andExpect(jsonPath("$.medicineId").value("20211119"))
-                    .andDo(print());
-        } finally {
-            dataSourceConnection.close();
-        }
+    void createPrice()  {
 
     }
 
