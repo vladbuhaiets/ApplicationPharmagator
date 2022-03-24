@@ -52,7 +52,7 @@ public class ExportServiceToPdfImpl implements ExportServiceToPdf {
         font.setColor(BaseColor.ORANGE);
 
         Paragraph p = new Paragraph("List of Prices", font);
-        p.setAlignment(Paragraph.ALIGN_CENTER);
+        p.setAlignment(Element.ALIGN_CENTER);
 
 
         document.add(p);

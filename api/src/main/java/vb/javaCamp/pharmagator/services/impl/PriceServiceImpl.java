@@ -23,7 +23,7 @@ public class PriceServiceImpl implements PriceService {
         return priceRepository.findAll()
                 .stream()
                 .map(PriceMapper::entityToDto)
-                .collect(Collectors.toList());
+                .toList();
 
     }
 
@@ -40,8 +40,7 @@ public class PriceServiceImpl implements PriceService {
 
         Price price = PriceMapper.DtoToEntity(priceDTO);
         Price created = priceRepository.save(price);
-        PriceDTO dto = PriceMapper.entityToDto(created);
-        return dto;
+        return PriceMapper.entityToDto(created);
 
     }
 
@@ -50,8 +49,7 @@ public class PriceServiceImpl implements PriceService {
         price.setPharmacyId(pid);
         price.setMedicineId(mid);
         Price updated = priceRepository.save(price);
-        PriceDTO dto = PriceMapper.entityToDto(updated);
-        return dto;
+        return PriceMapper.entityToDto(updated);
 
     }
 

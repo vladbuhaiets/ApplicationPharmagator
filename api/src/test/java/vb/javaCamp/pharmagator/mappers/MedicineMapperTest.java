@@ -18,7 +18,7 @@ class MedicineMapperTest {
         MedicineDTO medicineDTO = new MedicineDTO(2L,"title", BigDecimal.valueOf(2L), "externalId", "pharmacyName");
         Price price = MedicineMapper.DtoToPriceEntity(medicineDTO);
 
-        assertEquals(medicineDTO.getPrice(), price.getPrice());
+        assertEquals(medicineDTO.getPrice(), price.getMedicineId());
         assertEquals(medicineDTO.getExternalId(), price.getExternalId());
 
     }

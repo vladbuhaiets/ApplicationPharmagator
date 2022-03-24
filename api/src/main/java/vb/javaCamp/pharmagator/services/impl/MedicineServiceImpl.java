@@ -26,7 +26,7 @@ public class MedicineServiceImpl implements MedicineService {
         return medicineRepository.findAll()
                 .stream()
                 .map(MedicineMapper::entityToDto)
-                .collect(Collectors.toList());
+                .toList();
 
     }
 
@@ -42,8 +42,7 @@ public class MedicineServiceImpl implements MedicineService {
 
         Medicine medicine = MedicineMapper.DtoToMedicineEntity(medicineDTO);
         Medicine created = medicineRepository.save(medicine);
-        MedicineDTO dto = MedicineMapper.entityToDto(created);
-        return dto;
+        return MedicineMapper.entityToDto(created);
 
     }
 
@@ -58,8 +57,7 @@ public class MedicineServiceImpl implements MedicineService {
         Medicine medicine = MedicineMapper.DtoToMedicineEntity(medicineDTO);
         medicine.setId(id);
         Medicine updated = medicineRepository.save(medicine);
-        MedicineDTO dto = MedicineMapper.entityToDto(updated);
-        return dto;
+        return MedicineMapper.entityToDto(updated);
 
     }
 
@@ -67,7 +65,7 @@ public class MedicineServiceImpl implements MedicineService {
     public List<PriceDTO> findPricesById(Long id) {
         return priceRepository.findAllByMedicineId(id).stream()
                 .map(PriceMapper::entityToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
 }
