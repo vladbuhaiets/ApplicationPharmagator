@@ -24,6 +24,8 @@ public class ExportController {
 
     private final ExportServiceToCsv exportServiceToCsv;
 
+    private final String content = "Content-Disposition";
+
     @SneakyThrows
     @GetMapping("/excel")
     public void exportToExcel(HttpServletResponse response) {
@@ -31,7 +33,7 @@ public class ExportController {
         XSSFWorkbook workbook = exportServiceToExcel.getExportData();
         ServletOutputStream outputStream = response.getOutputStream();
 
-        response.addHeader("Content-Disposition", "attachment; filename=export.xlsx");
+        response.addHeader(content, "attachment; filename=export.xlsx");
 
         workbook.write(outputStream);
         workbook.close();
@@ -44,7 +46,7 @@ public class ExportController {
 
         response.setContentType("application/pdf");
         response.setCharacterEncoding("UTF-8");
-        response.addHeader("Content-Disposition", "attachment; filename=export.pdf");
+        response.addHeader(content, "attachment; filename=export.pdf");
 
         exportServiceToPdf.getExportData(response.getOutputStream());
 
@@ -55,7 +57,7 @@ public class ExportController {
     public void exportToCsv(HttpServletResponse response) {
 
         response.setContentType("text/csv");
-        response.addHeader("Content-Disposition", "attachment; filename=export.csv");
+        response.addHeader(content, "attachment; filename=export.csv");
 
         exportServiceToCsv.getExportData(response.getOutputStream());
 

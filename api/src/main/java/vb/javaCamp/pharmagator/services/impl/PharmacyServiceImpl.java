@@ -23,7 +23,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         return pharmacyRepository.findAll()
                 .stream()
                 .map(PharmacyMapper::entityToDto)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public PharmacyDTO getPharmacy(Long id) {
@@ -38,8 +38,7 @@ public class PharmacyServiceImpl implements PharmacyService {
 
         Pharmacy pharmacy = PharmacyMapper.DtoToEntity(pharmacyDTO);
         Pharmacy createdPharmacy = pharmacyRepository.save(pharmacy);
-        PharmacyDTO dto = PharmacyMapper.entityToDto(createdPharmacy);
-        return dto;
+        return PharmacyMapper.entityToDto(createdPharmacy);
 
     }
 
@@ -54,8 +53,7 @@ public class PharmacyServiceImpl implements PharmacyService {
         Pharmacy pharmacy = PharmacyMapper.DtoToEntity(pharmacyDTO);
         pharmacy.setId(id);
         Pharmacy updatedPharmacy = pharmacyRepository.save(pharmacy);
-        PharmacyDTO dto = PharmacyMapper.entityToDto(updatedPharmacy);
-        return dto;
+        return PharmacyMapper.entityToDto(updatedPharmacy);
 
     }
 

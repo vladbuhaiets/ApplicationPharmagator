@@ -9,10 +9,13 @@ import java.time.Instant;
 
 public class PriceMapper {
 
+    private PriceMapper() {
+    }
+
     public static Price DtoToEntity(PriceDTO priceDTO) {
 
         Price price = new Price();
-        price.setPrice(priceDTO.getPrice());
+        price.setMedicinePrice(priceDTO.getPrice());
         price.setMedicineId(priceDTO.getMedicineId());
         price.setExternalId(priceDTO.getExternalId());
         price.setPharmacyId(priceDTO.getPharmacyId());
@@ -33,7 +36,7 @@ public class PriceMapper {
     public static PriceDTO entityToDto(Price price) {
 
         PriceDTO priceDTO = new PriceDTO();
-        priceDTO.setPrice(price.getPrice());
+        priceDTO.setPrice(price.getMedicinePrice());
         priceDTO.setExternalId(price.getExternalId());
         priceDTO.setMedicineId(price.getMedicineId());
         priceDTO.setPharmacyId(price.getPharmacyId());

@@ -5,6 +5,9 @@ import vb.javaCamp.pharmagator.entities.Pharmacy;
 
 public class PharmacyMapper {
 
+    private PharmacyMapper() {
+    }
+
     public static PharmacyDTO entityToDto(Pharmacy pharmacy) {
 
         PharmacyDTO dto = new PharmacyDTO();

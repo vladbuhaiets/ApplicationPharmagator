@@ -29,7 +29,7 @@ public class FileSystemDataProvider implements DataProvider {
     @Override
     public Stream<MedicineDTO> loadData() {
         try (Stream<Path> paths = Files.walk(Paths.get(pathToFiles))) {
-            List<Path> collect = paths.filter(Files::isRegularFile).collect(Collectors.toList());
+            List<Path> collect = paths.filter(Files::isRegularFile).toList();
             return collect.stream().filter(Files::isRegularFile)
                     .flatMap(path -> {
                         try (FileInputStream inputStream = new FileInputStream(path.toFile())) {
